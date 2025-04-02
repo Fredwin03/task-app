@@ -1,4 +1,4 @@
-import { LucideDelete, LucideTrash, LucideTrash2 } from "lucide-react";
+import { LucideTrash2 } from "lucide-react";
 import { timeAgo } from "../helper/timeAgo";
 
 type task = {

@@ -1,7 +1,7 @@
 import { LucideX } from "lucide-react";
 import { useRef, useState } from "react";
 import { taskInputs } from "../tasks/page";
-
+import { useTaskStore } from '@/app/stores/taskStore';
 const TaskPopup = ({
   closeFn,
   newTask,
@@ -10,13 +10,11 @@ const TaskPopup = ({
   newTask: (taskDetails: taskInputs) => Promise<void>;
 }) => {
   const popupRef = useRef<HTMLDivElement>(null);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const { title, description, setTitle, setDescription, reset } = useTaskStore();
 
   const handleClickOutside = (e: React.MouseEvent) => {
     if (popupRef.current && !popupRef.current.contains(e.target as Node)) {
-      setTitle("");
-      setDescription("");
+      reset();
       closeFn();
     }
   };

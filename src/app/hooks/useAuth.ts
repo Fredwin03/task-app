@@ -23,7 +23,7 @@ export default function useAuth() {
         });
 
         if (!res.ok) {
-          router.push("/enter-email"); // Redirect if token is invalid
+          router.push("/enter-email");
         }else if(pathname === "/login" || pathname === "/register" || pathname === "/enter-email") {
           router.push("/tasks");
         }
